@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AutomatinisNaujas1.Page
 {
-    public class SeleniumInputPage : BasePage
+    public class SeleniumInputPage : BasePage 
     {
         // private static IWebDriver Driver; reikia istrinti
 
