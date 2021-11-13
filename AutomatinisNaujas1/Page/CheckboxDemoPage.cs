@@ -11,15 +11,15 @@ namespace AutomatinisNaujas1.Page
     public class CheckboxDemoPage : BasePage
     {
         private const string PageAddress = "https://demo.seleniumeasy.com/basic-checkbox-demo.html";
-        private const string TextToCheck = "Success - Check box is checked";
+        private const string TextToCheck = "Success - Check box is checked"; // issitrynem teksta kur buvo prie assert ir cia nourodom ko tikimes
         private IWebElement _singleCheckbox => Driver.FindElement(By.Id("isAgeSelected"));
         private IWebElement _Text => Driver.FindElement(By.Id("txtAge"));
         private IReadOnlyCollection<IWebElement> MultipleCheckboxList => Driver.FindElements(By.CssSelector(".cb1-element"));
         private IWebElement _Button => Driver.FindElement(By.Id("check1"));
 
-        public CheckboxDemoPage(IWebDriver webdriver) : base(webdriver)
+        public CheckboxDemoPage(IWebDriver webdriver) : base(webdriver) //kostruktorius
         {
-            Driver.Url = PageAddress;
+            Driver.Url = PageAddress;   //uzrasau kintamojo pavad
         }
         public CheckboxDemoPage CheckSingleCheckbox()
         {
@@ -55,7 +55,7 @@ namespace AutomatinisNaujas1.Page
         public CheckboxDemoPage CheckButtonValue(string value)
         {
             // GetWait().Until(ExpectedConditions.TextToBePresentInElement(_Button, "Uncheck All"));
-            // DefaultWait.Until(ExpectedConditions.TextToBePresentInElementValue(_Button, "Uncheck All"));
+            //DefaultWait.Until(ExpectedConditions.TextToBePresentInElementValue(_Button, "Uncheck All"));
             //Assert.IsTrue(Button.GetAttribute("value").Equals(value), "Second is wrong");
             return this;
         }

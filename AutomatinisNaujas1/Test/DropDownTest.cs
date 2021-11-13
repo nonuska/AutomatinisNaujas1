@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using AutomatinisNaujas1.Page;
 
-namespace VCSchool1023.Test
+namespace AutomatinisNaujas1.Test
 {
-    public class DropDownTest
+    public class DropDownTest //butinai public
     {
-        private static DropDownPage _page;
+        private static DropDownPage _page; //susiejam su klase
 
         [OneTimeSetUp]
         public static void SetUp()
@@ -20,7 +20,7 @@ namespace VCSchool1023.Test
             IWebDriver driver = new ChromeDriver();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Manage().Window.Maximize();
-            _page = new DropDownPage(driver);
+            _page = new DropDownPage(driver); //susiejam su dropdownpage
         }
 
         [OneTimeTearDown]
@@ -30,20 +30,22 @@ namespace VCSchool1023.Test
             _page.CloseBrowser();
         }
 
-        [Test]
-        public void TestDropDown()
+        [Test] 
+        public void TestDropDown() //pirmas metodas buvo by text arba buy value
         {
             _page.SelectFromDropdownByText("Friday")
                 .VerifyResult("Friday");
         }
 
         [Test]
-        public void TestMultiDropDown()
+        public void TestMultiDropDown() //cia pirma pagej susikuria (4),po to sita (7)
         {
-            _page.SelectFromMultiDropDownByValue("Ohio", "Florida")
-                .ClickFirstSelectedButton();
+            _page.SelectFromMultiDropDownByValue("Ohio", "Florida") //yrasome du value tai ohio, ir florida
+                .ClickFirstSelectedButton(); //primiausia apsirasome pagej ta pirma mygtuka , po to antra , o mes siuo atveju norime paspausti pirma mygtuka FIRST SELECTED kad parodytu tik 1 valst
 
 
         }
+
+
     }
 }
