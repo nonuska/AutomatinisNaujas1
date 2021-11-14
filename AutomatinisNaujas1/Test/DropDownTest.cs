@@ -30,7 +30,7 @@ namespace AutomatinisNaujas1.Test
             _page.CloseBrowser();
         }
 
-        [Test] 
+        [Test]
         public void TestDropDown() //pirmas metodas buvo by text arba buy value
         {
             _page.SelectFromDropdownByText("Friday")
@@ -45,7 +45,24 @@ namespace AutomatinisNaujas1.Test
 
 
         }
+        //ND
 
+        [TestCase("California", "New York", TestName = "First selected option is : California")]
+        [TestCase("California", "New York", TestName = "Options selected are : California,New York")]
+        [TestCase("California", "New York", "Texas", TestName = "First selected option is : California")]
+        [TestCase("California", "New York", "Texas", "Washington", TestName = "Options selected are : California, New York, Texas, Pennsylvania,Washington")]
+
+        public void TestMultiDropDownValue()
+        {
+
+            _page.SelectFromMultiDropDownByValue(string valstyb1, string valstyb1, string valstyb1, string valstyb1);
+            .ClickFirstSelectedButton();
+
+            .ClickGetAllSelectedButton();
+
+
+           
+        }
 
     }
 }
