@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,30 +9,38 @@ using System.Threading.Tasks;
 
 namespace AutomatinisNaujas1.Test
 {
-    public class TeidaTest
+    public class IevaPedkelnesTest
     {
-        private static IWebDriver _page;
+        private static IevaPedkelnesTest _page;
 
         [OneTimeSetUp]
         public static void SetUp()
         {
-           IWebDriver driver = new ChromeDriver();
+            IWebDriver driver = new ChromeDriver();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Manage().Window.Maximize();
-            _page = new TeidaPagrindinisPage1(driver);
-
-            IWebElement Cookies = driver.FindElement(By.CssSelector(".cc - btn cc - dismiss"));
-            wait.Until(d => popUp.Displayed);
-            Cookies.Click();
+            _page = new IevaPedkelnesPage(driver);
         }
-
 
         [OneTimeTearDown]
+
         public static void TearDown()
         {
-            //_driver.Quit();
+            _page.CloseBrowser();
         }
 
+        //kitas psl blauzdines
+        public IevaPedkelnesPage ClickStevenBlauzdinės068Button()
+        {
+            _StevenBlauzdinės068Button.Click();
+            return this;
+
+        }
+        public IevaPedkelnesPage CheckAllCheckboxes()
+        check
+        }
+        
+        
 
     }
 }

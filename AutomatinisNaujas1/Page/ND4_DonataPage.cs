@@ -18,7 +18,7 @@ namespace AutomatinisNaujas1.Page
             private const string GetAllSelectedResultText = "Options selected are : ";
             private IWebElement FirstSelectedButton => Driver.FindElement(By.Id("printMe"));//cia pirmas mygtukas
             private IWebElement GetAllSelectedButton => Driver.FindElement(By.Id("printAll"));// antras mygtukas get all
-            private SelectElement MultiDropDown => new SelectElement(Driver.FindElement(By.Id("multi-select")));
+            private SelectElement MultiND4_Donata => new SelectElement(Driver.FindElement(By.Id("multi-select")));
            
             public ND4_DonataPage(IWebDriver webdriver) : base(webdriver)
 
@@ -41,9 +41,9 @@ namespace AutomatinisNaujas1.Page
         public ND4_DonataPage SelectFromDuByValue(string firstValue, string secondValue)
         {
             Actions action = new Actions(Driver);
-            MultiDropDown.SelectByValue(firstValue);
+            MultiND4_Donata.SelectByValue(firstValue);
             action.KeyDown(Keys.Control);
-            MultiDropDown.SelectByValue(secondValue);
+            MultiND4_Donata.SelectByValue(secondValue);
             action.KeyUp(Keys.Control);
             action.Build().Perform();
             return this;
@@ -52,11 +52,11 @@ namespace AutomatinisNaujas1.Page
         public ND4_DonataPage SelectFromTrysByValue(string firstValue, string secondValue, string thirdValue)
         {
             Actions action = new Actions(Driver);
-            MultiDropDown.SelectByValue(firstValue);
+            MultiND4_Donata.SelectByValue(firstValue);
             action.KeyDown(Keys.Control);
-            MultiDropDown.SelectByValue(secondValue);
+            MultiND4_Donata.SelectByValue(secondValue);
             //action.KeyDown(Keys.Control); //REIKIA LAIKYTI KAIP APRASYTI
-            MultiDropDown.SelectByValue(thirdValue);
+            MultiND4_Donata.SelectByValue(thirdValue);
             action.KeyUp(Keys.Control);
             action.Build().Perform();
             return this;
@@ -64,13 +64,13 @@ namespace AutomatinisNaujas1.Page
         public ND4_DonataPage SelectFromKeturiosByValue(string firstValue, string secondValue, string thirdValue, string fourthValue) //cia kazkaip ne taipPASISIURETI
         {
             Actions action = new Actions(Driver); 
-            MultiDropDown.SelectByValue(firstValue);
+            MultiND4_Donata.SelectByValue(firstValue);
             action.KeyDown(Keys.Control);
-            MultiDropDown.SelectByValue(secondValue);
+            MultiND4_Donata.SelectByValue(secondValue);
             // action.KeyDown(Keys.Control); // REIKIA LAIKTYTI
-            MultiDropDown.SelectByValue(thirdValue);
+            MultiND4_Donata.SelectByValue(thirdValue);
           //action.KeyDown(Keys.Control); //REIKIA LAIKYTI
-            MultiDropDown.SelectByValue(fourthValue);
+            MultiND4_Donata.SelectByValue(fourthValue);
             action.KeyUp(Keys.Control);
             action.Build().Perform();
             return this;
@@ -90,12 +90,12 @@ namespace AutomatinisNaujas1.Page
 
         public ND4_DonataPage SelectFromMultipleDropdownByValue(List<string> listOfStates)
         {
-            MultiDropDown.DeselectAll();
+            MultiND4_Donata.DeselectAll();
             Actions action = new Actions(Driver);
             action.KeyDown(Keys.LeftControl);
             foreach (string state in listOfStates)
             {
-                foreach (IWebElement option in MultiDropDown.Options)
+                foreach (IWebElement option in MultiND4_Donata.Options)
                 {
                     if (state.Equals(option.GetAttribute("value")))
                     {
@@ -110,8 +110,19 @@ namespace AutomatinisNaujas1.Page
             action.Build().Perform();
             return this;
         }
-        
-    
+        /*
+        public ND4_DonataPage VerifyResult(string selectedStates)
+        {
+            Assert.IsTrue(FirstSelectedResultTextElement.Text.Equals(FirstSelectedResultText + selectedStates), $"Result is wrong, not {selectedStates}");
+            return this;
+        }
+
+        public ND4_DonataPage VerifyResultAll(string selectedStates)
+        {
+            Assert.IsTrue(GetAllSelectedResultTexElement.Text.Equals(GetAllSelectedResultText + selectedStates), $"Result is wrong, not {selectedStates}");
+            return this;
+        }
+        */
 
     }
 }
