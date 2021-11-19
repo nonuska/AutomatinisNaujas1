@@ -30,7 +30,7 @@ namespace AutomatinisNaujas1.Drivers
                 case Browsers.Chrome:
                     driver = new ChromeDriver();
                     break;
-                case Browsers.Firefox:
+                case Browsers.FirefoxChrome:
                     driver = new FirefoxDriver();
                     break;
             }

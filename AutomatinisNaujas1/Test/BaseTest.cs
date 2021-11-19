@@ -1,6 +1,4 @@
-﻿using AutomatinisNaujas1.Drivers;
-using AutomatinisNaujas1.Page;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using System;
@@ -12,7 +10,7 @@ using AutomatinisNaujas1.Drivers;
 using AutomatinisNaujas1.Page;
 using AutomatinisNaujas1.Tools;
 
-namespace AutomatinisNaujas1.Test //sitame reikia susikkurtipo 1 nauja objekta kiekvienam is sukurtu puslapiu
+namespace AutomatinisNaujas1.Test
 {
     public class BaseTest
     {
@@ -32,7 +30,7 @@ namespace AutomatinisNaujas1.Test //sitame reikia susikkurtipo 1 nauja objekta k
 
         [TearDown]
 
-        public static void TakeScreenshot() //metodas kuris bandys pagauti screenshot
+        public static void TakeScreenshot()
         {
             if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
                 MyScreenshot.MakeScreenshot(driver);
