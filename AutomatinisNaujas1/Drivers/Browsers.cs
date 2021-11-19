@@ -9,6 +9,7 @@ namespace AutomatinisNaujas1.Drivers// pagalbine klase
     enum Browsers
     {
         Chrome,
+        IncognitoChrome,
         Firefox,
         Opera,
         Edge,
