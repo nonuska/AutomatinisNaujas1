@@ -23,10 +23,10 @@ namespace AutomatinisNaujas1.Page
             BoxText.Clear();
             BoxText.SendKeys(text);
         }
-        //KAIP PALYGINTI
-        public TeidaKamuoliukasZalias8Page5 CheckBoxText(string expectedResutBoxText)
+        //KAIP PALYGINTI //ne taip parasiau
+        public TeidaKamuoliukasZalias8Page5()
         {
-            Assert.AreEgual(expectedResutBoxText, NEZINAU KAIP APRASYTI KAD TAS SKAICIUS YRA TOKIO KOKIO NORIM);
+            Assert.IsTrue(Driver.FindElement(By.Id("toBasket")), "Atsidaro ne tas mygtukas");
                return this;
         }
 
@@ -35,6 +35,9 @@ namespace AutomatinisNaujas1.Page
             IKrepseli.Click();
             return this;
         }
+       
+        Assert.AreEqual(BoxText, BoxText.Text, "Nieko neisiraso");
     }
+
     }
 

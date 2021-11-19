@@ -56,13 +56,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Drivers.cs" />
+    <Compile Include="Drivers\Browsers.cs" />
     <Compile Include="Drivers\CustomDrivers.cs" />
     <Compile Include="Page\BasePage.cs" />
     <Compile Include="Page\CheckboxDemoPage.cs" />
     <Compile Include="Page\DropDownPage.cs" />
     <Compile Include="Page\IevaPedkelnesPage.cs" />
     <Compile Include="Page\ND4_DonataPage.cs" />
+    <Compile Include="Page\SebPage.cs" />
     <Compile Include="Page\SeleniumInPutPage.cs" />
     <Compile Include="Page\TeidaKamuoliukasGeltonas10Page6.cs" />
     <Compile Include="Page\TeidaKrepselisPage8.cs" />
@@ -79,15 +80,18 @@
     <Compile Include="Test\DropDownTest.cs" />
     <Compile Include="Test\IevaPedkelnesTest.cs" />
     <Compile Include="Test\ND4_DonataTest.cs" />
+    <Compile Include="Test\SebTest.cs" />
     <Compile Include="Test\SeleniuInputTest.cs" />
     <Compile Include="Test\TeidaTest.cs" />
     <Compile Include="Test\VartuTechnika.cs" />
-    <Compile Include="Tools\Screenshot.cs" />
+    <Compile Include="Tools\MyScreenshot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="screenshot\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

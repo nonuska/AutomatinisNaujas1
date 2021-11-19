@@ -6,48 +6,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutomatinisNaujas1.Drivers;
 using AutomatinisNaujas1.Page;
 
 namespace AutomatinisNaujas1.Test
 {
-    public class DropDownTest //butinai public
+    public class DropDownTest : BaseTest
     {
-        private static DropDownPage _page; //susiejam su klase
-
-        [OneTimeSetUp]
-        public static void SetUp()
-        {
-            IWebDriver driver = new ChromeDriver();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            driver.Manage().Window.Maximize();
-            _page = new DropDownPage(driver); //susiejam su dropdownpage
-        }
-
-        [OneTimeTearDown]
-
-        public static void TearDown()
-        {
-            _page.CloseBrowser();
-        }
 
         [Test]
-        public void TestDropDown() //pirmas metodas buvo by text arba buy value
+        public void TestDropDown()
         {
-            _page.SelectFromDropdownByText("Friday")
+            _dropDownPage.NavigateToDefaultPage()
+                .SelectFromDropdownByText("Friday")
                 .VerifyResult("Friday");
         }
 
-        [Test]
-        public void TestMultiDropDown() //cia pirma pagej susikuria (4),po to sita (7)
+        [TestCase("New Jersey", "California", TestName = "Pasirenkame 2 reiksmes ir patikriname pirma pasirinkima")]
+        [TestCase("Washington", "Ohio", "Texas", TestName = "Pasirenkame 3 reiksmes ir patikriname pirma pasirinkima")]
+        public void TestMultipleDropdown(params string[] selectedElements)
         {
-            _page.SelectFromMultiDropDownByValue("Ohio", "Florida") //yrasome du value tai ohio, ir florida
-                .ClickFirstSelectedButton(); //primiausia apsirasome pagej ta pirma mygtuka , po to antra , o mes siuo atveju norime paspausti pirma mygtuka FIRST SELECTED kad parodytu tik 1 valst
-
-
+            _dropDownPage.NavigateToDefaultPage()
+                .SelectFromMultipleDropdownAndClickFirstButton(selectedElements.ToList())
+                .CheckFirstState(selectedElements[0]);
         }
-       
 
-          
-
+        [TestCase("New Jersey", "California", TestName = "Pasirenkame 2 reiksmes ir patikriname visus pasirinkimus")]
+        [TestCase("Washington", "Ohio", "Texas", "Florida", TestName = "Pasirenkame 4 reiksmes ir patikriname visus pasirinkimus")]
+        public void TestMultipleDropdownGetAll(params string[] selectedElements)
+        {
+            _dropDownPage.NavigateToDefaultPage()
+                .SelectFromMultipleDropDownByValue(selectedElements.ToList())
+                .ClickGetAllButton();
+        }
     }
 }

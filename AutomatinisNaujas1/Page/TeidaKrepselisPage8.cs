@@ -10,9 +10,9 @@ namespace AutomatinisNaujas1.Page
    public class TeidaKrepselisPage8 : BasePage
     {
         //GALI NETIKTI ADRESAS NES NESU PRISIREGISTRAVUS
-       public const string PageAddressKrepselis = "https://www.teida.lt/Krepselis/?force_sid=s24vri1565rkubs6tatjn869k2";
+       public const string PageAddressKrepselis = "https://www.teida.lt/Krepselis/?force_sid=l9el974mvphvdurnahqib42386";
 
-
+        private const string ResultText = "Iš viso: ";
         public TeidaKrepselisPage8(IWebDriver webdriver) : base(webdriver)
             {
                 Driver.Url = PageAddressKrepselis;
@@ -33,7 +33,7 @@ namespace AutomatinisNaujas1.Page
         private IWebElement PeduMasazuoklisPlius => Driver.FindElement(By.Id("qtyPlus_53836bdfc001a3224afae04ad49aaaa2"));
         private IWebElement PeduMasazuoklisKiekis => Driver.FindElement(By.Id("am_53836bdfc001a3224afae04ad49aaaa2"));
 
-        private IWebElement Salinti => Driver.FindElement(By.Id("basketRemove"));
+        private IWebElement ButtonSalinti => Driver.FindElement(By.Id("basketRemove"));
 
     }private IWebElement SumaText => Driver.FindElement(By.CssSelector(".blueLight")); //cia rasysim teksta is viso 
 }

@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutomatinisNaujas1.Page;
 
-namespace VCSchool1023.Test
+namespace AutomatinisNaujas1.Test
 {
     public class VartuTechnikaTest
     {
